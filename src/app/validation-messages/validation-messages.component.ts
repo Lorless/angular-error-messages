@@ -2,7 +2,7 @@ import {Component, OnInit, Input} from '@angular/core';
 
 
 class CustomError {
-  message?: string
+  message?: string;
 }
 
 @Component({
