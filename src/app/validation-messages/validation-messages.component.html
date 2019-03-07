@@ -1,0 +1,31 @@
+<!--Default errors, come from angular forms validation modules-->
+<div *ngFor="let error of getErrors()">
+
+  <div *ngIf="error==='required'">
+    <span class="text-danger">{{name}} is required</span>
+  </div>
+
+  <div *ngIf="error==='minlength'">
+    <span class="text-danger">{{name}} must have a minimum length of {{errors[error].requiredLength}} ({{errors[error].actualLength}})</span>
+  </div>
+
+  <div *ngIf="error==='maxlength'">
+    <span class="text-danger">{{name}} must have a maximum length of {{errors[error].requiredLength}} ({{errors[error].actualLength}})</span>
+  </div>
+
+  <div *ngIf="error==='email'">
+    <span class="text-danger">Email address is not valid</span>
+  </div>
+
+</div>
+
+<!--Custom errors, come from customer validators we write ourselves, have to provide our own key/message-->
+<div *ngFor="let customErrorKey of getCustomErrors(); let i = index">
+  <div *ngFor="let error of getErrors()">
+    <div *ngIf="error===customErrorKey">
+      <span class="text-danger">{{name}} {{customErrors[customErrorKey]}}</span>
+    </div>
+  </div>
+</div>
+
+
